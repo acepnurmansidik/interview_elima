@@ -44,8 +44,7 @@ FROM
       lap_absensi_202404 la
   ) as data_absen on mp.nip = data_absen.nip ".$filter." 
 order by 
-  data_absen.tgl_kerja ASC;
-            ");
+  data_absen.tgl_kerja ASC;");
 
             $data_kehadiran = [];
 
@@ -83,8 +82,11 @@ order by
 
 Route::get('/', function (Request $request) {
 
-  $filter = "WHERE YEAR (data_absen.tgl_kerja) = ".$request->year;
-  if($request->month != "all"){
+  $filter = " ";
+  if($request->year != false){
+    $filter = " WHERE YEAR(data_absen.tgl_kerja) = ".$request->year;
+  }
+  if(is_numeric($request->month)){
     $filter = " and MONTH(data_absen.tgl_kerja) = ".$request->month;
   }
 
