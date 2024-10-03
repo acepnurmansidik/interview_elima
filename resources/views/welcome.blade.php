@@ -7,8 +7,9 @@
 </head>
 <body>
   <div class="w-full p-5 flex gap-3 flex-col">
-    <form class="flex gap-3">
+    <form class="flex gap-3" method="GET">
         <select name="month" id="month" class=" px-4 py-2 rounded-xl border-2 border-blue-600">
+            <option value="all">All</option>
             <option value="3">Maret</option>
             <option value="4">April</option>
         </select>
@@ -16,6 +17,7 @@
             <option value="2024">2024</option>
             <option value="2025">2025</option>
         </select>
+        <button class="px-5 py-2 bg-blue-600 rounded-xl text-white">Search</button>
     </form>
     <table class="table-auto w-full relative">
         <thead>
